@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>プライバシーポリシー | SwellWatch</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #07131f;
+      --card: #0e2236;
+      --border: #1e3a56;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 32px 16px 56px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+      background: linear-gradient(180deg, #0b1e31 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.75;
+    }
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px 28px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+    }
+    h1 {
+      margin: 0 0 6px;
+      font-size: 1.7rem;
+      color: #f8fafc;
+    }
+    .subtitle {
+      margin: 0 0 24px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    h2 {
+      margin: 26px 0 8px;
+      font-size: 1.12rem;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 4px;
+    }
+    p, ul { margin: 8px 0 12px; }
+    ul { padding-left: 22px; }
+    li { margin-bottom: 6px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code {
+      background: rgba(56, 189, 248, 0.12);
+      padding: 2px 6px;
+      border-radius: 5px;
+      font-size: 0.9em;
+    }
+    footer {
+      margin-top: 32px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      font-size: 0.88rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>SwellWatch プライバシーポリシー</h1>
+    <p class="subtitle">最終更新日: 2026年11月17日</p>
+
+    <p>
+      本プライバシーポリシーは、Wear OS アプリケーション「SwellWatch」（以下「本アプリ」）における利用者情報の取り扱いについて定めるものです。
+    </p>
+
+    <h2>1. 取得および送信する情報</h2>
+    <ul>
+      <li>
+        <strong>位置情報（概算・正確な位置情報 / <code>ACCESS_COARSE_LOCATION</code>・<code>ACCESS_FINE_LOCATION</code>）</strong><br />
+        利用者が「現在地 (GPS)」モードを選択し位置情報権限を許可した場合に限り、現在地の緯度・経度を取得します。バックグラウンドでの常時位置追跡は行いません。
+      </li>
+      <li>
+        <strong>利用者が指定・検索した地点情報</strong><br />
+        ポイント検索（音声入力・キーボード入力）で入力された地名、または手動指定された緯度・経度。
+      </li>
+    </ul>
+
+    <h2>2. 利用目的</h2>
+    <p>取得した情報は、以下の目的にのみ使用します。</p>
+    <ul>
+      <li>指定地点または現在地における波浪（うねり）・風向風速・潮位・水温・気温予報の取得および表示</li>
+      <li>海岸線（沖の向き）の自動推定</li>
+      <li>地点名による候補検索</li>
+    </ul>
+
+    <h2>3. 外部サービスへのデータ送信</h2>
+    <p>
+      予報データおよび地点検索結果を取得するため、以下の外部気象・地図 API へ緯度・経度または検索キーワードを HTTPS 通信により送信します。
+    </p>
+    <ul>
+      <li>
+        <strong>Open-Meteo</strong>（Marine / Elevation / Geocoding API）<br />
+        <a href="https://open-meteo.com/en/terms" target="_blank" rel="noopener noreferrer">https://open-meteo.com/en/terms</a>
+      </li>
+      <li>
+        <strong>MET Norway</strong>（Locationforecast 2.0 API）<br />
+        <a href="https://api.met.no/doc/TermsOfService" target="_blank" rel="noopener noreferrer">https://api.met.no/doc/TermsOfService</a>
+      </li>
+    </ul>
+
+    <h2>4. データの保存および第三者提供</h2>
+    <ul>
+      <li>本アプリは開発者自身のサーバーへ利用者の位置情報や個人情報を送信・保存しません。</li>
+      <li>アプリの設定値および最新の予報キャッシュは、利用者の端末内（Android DataStore）にのみ保存され、アプリのアンインストールにより削除されます。</li>
+      <li>広告配信 SDK やアクセス解析ツールは組み込んでおらず、第三者へのデータ販売・共有も行いません。</li>
+    </ul>
+
+    <h2>5. 権限の取り消し</h2>
+    <p>
+      利用者は、Wear OS 端末の「設定」＞「アプリ」＞「SwellWatch」＞「権限」からいつでも位置情報の許可を取り消すことができます。位置情報を許可しない場合でも、登録ポイントや緯度・経度指定モードにより本アプリを利用できます。
+    </p>
+
+    <h2>6. お問い合わせ</h2>
+    <p>
+      本プライバシーポリシーまたは本アプリに関するお問い合わせは、以下の連絡先までご連絡ください。<br />
+      開発者連絡先: <a href="mailto:nobu.nakata@gmail.com">nobu.nakata@gmail.com</a>
+    </p>
+
+    <footer>
+      <span>SwellWatch — Wear OS Surf Compass &amp; Swell Forecast</span>
+      <a href="./index.html">アプリ紹介・サポートページへ戻る</a>
+    </footer>
+  </main>
+</body>
+</html>
