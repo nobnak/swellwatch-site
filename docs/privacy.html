@@ -6,139 +6,296 @@
   <title>プライバシーポリシー | SwellWatch</title>
   <style>
     :root {
-      color-scheme: dark;
-      --bg: #07131f;
-      --card: #0e2236;
-      --border: #1e3a56;
-      --text: #e2e8f0;
-      --muted: #94a3b8;
-      --accent: #38bdf8;
+      color-scheme: light dark;
+      --bg-canvas: #ffffff;
+      --bg-subtle: #f6f8fa;
+      --fg-default: #1f2328;
+      --fg-muted: #656d76;
+      --fg-accent: #0969da;
+      --border-default: #d0d7de;
+      --border-muted: rgba(209, 217, 224, 0.7);
+      --code-bg: rgba(175, 184, 193, 0.2);
+      --btn-hover: #f3f4f6;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-canvas: #0d1117;
+        --bg-subtle: #161b22;
+        --fg-default: #e6edf3;
+        --fg-muted: #8b949e;
+        --fg-accent: #58a6ff;
+        --border-default: #30363d;
+        --border-muted: #21262d;
+        --code-bg: rgba(110, 118, 129, 0.4);
+        --btn-hover: #30363d;
+      }
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
-      padding: 32px 16px 56px;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
-      background: linear-gradient(180deg, #0b1e31 0%, var(--bg) 100%);
-      color: var(--text);
-      line-height: 1.75;
+      background-color: var(--bg-canvas);
+      color: var(--fg-default);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+      font-size: 16px;
+      line-height: 1.65;
+      word-wrap: break-word;
     }
-    main {
-      max-width: 760px;
+    .page-header {
+      background-color: var(--bg-subtle);
+      border-bottom: 1px solid var(--border-default);
+      padding: 16px 24px;
+    }
+    .page-header-inner {
+      max-width: 880px;
       margin: 0 auto;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 32px 28px;
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
     }
-    h1 {
-      margin: 0 0 6px;
-      font-size: 1.7rem;
-      color: #f8fafc;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 16px;
+      color: var(--fg-default);
+      text-decoration: none;
     }
-    .subtitle {
-      margin: 0 0 24px;
-      color: var(--muted);
-      font-size: 0.92rem;
+    .brand-badge {
+      font-size: 12px;
+      font-weight: 500;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--border-default);
+      color: var(--fg-muted);
     }
-    h2 {
-      margin: 26px 0 8px;
-      font-size: 1.12rem;
-      color: var(--accent);
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 4px;
+    .top-nav {
+      display: flex;
+      gap: 8px;
+      align-items: center;
     }
-    p, ul { margin: 8px 0 12px; }
-    ul { padding-left: 22px; }
-    li { margin-bottom: 6px; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    code {
-      background: rgba(56, 189, 248, 0.12);
-      padding: 2px 6px;
-      border-radius: 5px;
-      font-size: 0.9em;
+    .nav-link {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--fg-default);
+      text-decoration: none;
+      padding: 5px 12px;
+      border-radius: 6px;
+      border: 1px solid transparent;
     }
-    footer {
-      margin-top: 32px;
-      padding-top: 16px;
-      border-top: 1px solid var(--border);
-      font-size: 0.88rem;
-      color: var(--muted);
+    .nav-link:hover {
+      background-color: var(--btn-hover);
+      text-decoration: none;
+    }
+    .nav-link.active {
+      background-color: var(--bg-canvas);
+      border-color: var(--border-default);
+      font-weight: 600;
+    }
+    .container {
+      max-width: 880px;
+      margin: 24px auto 48px;
+      padding: 0 16px;
+    }
+    .readme-box {
+      border: 1px solid var(--border-default);
+      border-radius: 6px;
+      background-color: var(--bg-canvas);
+      overflow: hidden;
+    }
+    .readme-bar {
+      background-color: var(--bg-subtle);
+      border-bottom: 1px solid var(--border-default);
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--fg-default);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .readme-bar-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .readme-meta {
+      font-weight: 400;
+      color: var(--fg-muted);
+      font-size: 12px;
+    }
+    .markdown-body {
+      padding: 32px;
+    }
+    @media (max-width: 600px) {
+      .markdown-body { padding: 20px 18px; }
+    }
+    .markdown-body h1 {
+      margin: 0 0 16px;
+      padding-bottom: 0.3em;
+      font-size: 1.85em;
+      font-weight: 600;
+      line-height: 1.25;
+      border-bottom: 1px solid var(--border-muted);
+    }
+    .markdown-body h2 {
+      margin: 26px 0 12px;
+      padding-bottom: 0.3em;
+      font-size: 1.35em;
+      font-weight: 600;
+      line-height: 1.25;
+      border-bottom: 1px solid var(--border-muted);
+    }
+    .markdown-body p {
+      margin: 0 0 16px;
+    }
+    .markdown-body ul {
+      margin: 0 0 16px;
+      padding-left: 2em;
+    }
+    .markdown-body li + li {
+      margin-top: 0.4em;
+    }
+    .markdown-body a {
+      color: var(--fg-accent);
+      text-decoration: none;
+    }
+    .markdown-body a:hover {
+      text-decoration: underline;
+    }
+    .markdown-body code {
+      padding: 0.2em 0.4em;
+      margin: 0;
+      font-size: 85%;
+      background-color: var(--code-bg);
+      border-radius: 6px;
+      font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, monospace;
+    }
+    .markdown-body blockquote {
+      margin: 0 0 16px;
+      padding: 0 1em;
+      color: var(--fg-muted);
+      border-left: 0.25em solid var(--border-default);
+    }
+    .site-footer {
+      max-width: 880px;
+      margin: 20px auto 0;
+      padding: 0 16px;
+      font-size: 12px;
+      color: var(--fg-muted);
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 8px;
     }
+    .site-footer a {
+      color: var(--fg-muted);
+      text-decoration: none;
+    }
+    .site-footer a:hover {
+      color: var(--fg-accent);
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
-  <main>
-    <h1>SwellWatch プライバシーポリシー</h1>
-    <p class="subtitle">最終更新日: 2026年11月17日</p>
+  <header class="page-header">
+    <div class="page-header-inner">
+      <a class="brand" href="./index.html">
+        <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+          <path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.249.249 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/>
+        </svg>
+        <span>SwellWatch</span>
+        <span class="brand-badge">Wear OS</span>
+      </a>
+      <nav class="top-nav">
+        <a class="nav-link" href="./index.html">概要</a>
+        <a class="nav-link active" href="./privacy.html">プライバシーポリシー</a>
+      </nav>
+    </div>
+  </header>
 
-    <p>
-      本プライバシーポリシーは、Wear OS アプリケーション「SwellWatch」（以下「本アプリ」）における利用者情報の取り扱いについて定めるものです。
-    </p>
+  <div class="container">
+    <article class="readme-box">
+      <div class="readme-bar">
+        <span class="readme-bar-title">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"/>
+          </svg>
+          <span>PRIVACY.md</span>
+        </span>
+        <span class="readme-meta">最終更新日: 2026年11月17日</span>
+      </div>
+      <div class="markdown-body">
+        <h1>SwellWatch プライバシーポリシー</h1>
 
-    <h2>1. 取得および送信する情報</h2>
-    <ul>
-      <li>
-        <strong>位置情報（概算・正確な位置情報 / <code>ACCESS_COARSE_LOCATION</code>・<code>ACCESS_FINE_LOCATION</code>）</strong><br />
-        利用者が「現在地 (GPS)」モードを選択し位置情報権限を許可した場合に限り、現在地の緯度・経度を取得します。バックグラウンドでの常時位置追跡は行いません。
-      </li>
-      <li>
-        <strong>利用者が指定・検索した地点情報</strong><br />
-        ポイント検索（音声入力・キーボード入力）で入力された地名、または手動指定された緯度・経度。
-      </li>
-    </ul>
+        <blockquote>
+          <p>本プライバシーポリシーは、Wear OS アプリケーション「SwellWatch」（以下「本アプリ」）における利用者情報の取り扱いについて定めるものです。</p>
+        </blockquote>
 
-    <h2>2. 利用目的</h2>
-    <p>取得した情報は、以下の目的にのみ使用します。</p>
-    <ul>
-      <li>指定地点または現在地における波浪（うねり）・風向風速・潮位・水温・気温予報の取得および表示</li>
-      <li>海岸線（沖の向き）の自動推定</li>
-      <li>地点名による候補検索</li>
-    </ul>
+        <h2>1. 取得および送信する情報</h2>
+        <ul>
+          <li>
+            <strong>位置情報（概算・正確な位置情報 / <code>ACCESS_COARSE_LOCATION</code>・<code>ACCESS_FINE_LOCATION</code>）</strong><br />
+            利用者が「現在地 (GPS)」モードを選択し位置情報権限を許可した場合に限り、現在地の緯度・経度を取得します。バックグラウンドでの常時位置追跡は行いません。
+          </li>
+          <li>
+            <strong>利用者が指定・検索した地点情報</strong><br />
+            ポイント検索（音声入力・キーボード入力）で入力された地名、または手動指定された緯度・経度。
+          </li>
+        </ul>
 
-    <h2>3. 外部サービスへのデータ送信</h2>
-    <p>
-      予報データおよび地点検索結果を取得するため、以下の外部気象・地図 API へ緯度・経度または検索キーワードを HTTPS 通信により送信します。
-    </p>
-    <ul>
-      <li>
-        <strong>Open-Meteo</strong>（Marine / Elevation / Geocoding API）<br />
-        <a href="https://open-meteo.com/en/terms" target="_blank" rel="noopener noreferrer">https://open-meteo.com/en/terms</a>
-      </li>
-      <li>
-        <strong>MET Norway</strong>（Locationforecast 2.0 API）<br />
-        <a href="https://api.met.no/doc/TermsOfService" target="_blank" rel="noopener noreferrer">https://api.met.no/doc/TermsOfService</a>
-      </li>
-    </ul>
+        <h2>2. 利用目的</h2>
+        <p>取得した情報は、以下の目的にのみ使用します。</p>
+        <ul>
+          <li>指定地点または現在地における波浪（うねり）・風向風速・潮位・水温・気温予報の取得および表示</li>
+          <li>海岸線（沖の向き）の自動推定</li>
+          <li>地点名による候補検索</li>
+        </ul>
 
-    <h2>4. データの保存および第三者提供</h2>
-    <ul>
-      <li>本アプリは開発者自身のサーバーへ利用者の位置情報や個人情報を送信・保存しません。</li>
-      <li>アプリの設定値および最新の予報キャッシュは、利用者の端末内（Android DataStore）にのみ保存され、アプリのアンインストールにより削除されます。</li>
-      <li>広告配信 SDK やアクセス解析ツールは組み込んでおらず、第三者へのデータ販売・共有も行いません。</li>
-    </ul>
+        <h2>3. 外部サービスへのデータ送信</h2>
+        <p>
+          予報データおよび地点検索結果を取得するため、以下の外部気象・地図 API へ緯度・経度または検索キーワードを HTTPS 通信により送信します。
+        </p>
+        <ul>
+          <li>
+            <strong>Open-Meteo</strong>（Marine / Elevation / Geocoding API）<br />
+            <a href="https://open-meteo.com/en/terms" target="_blank" rel="noopener noreferrer">https://open-meteo.com/en/terms</a>
+          </li>
+          <li>
+            <strong>MET Norway</strong>（Locationforecast 2.0 API）<br />
+            <a href="https://api.met.no/doc/TermsOfService" target="_blank" rel="noopener noreferrer">https://api.met.no/doc/TermsOfService</a>
+          </li>
+        </ul>
 
-    <h2>5. 権限の取り消し</h2>
-    <p>
-      利用者は、Wear OS 端末の「設定」＞「アプリ」＞「SwellWatch」＞「権限」からいつでも位置情報の許可を取り消すことができます。位置情報を許可しない場合でも、登録ポイントや緯度・経度指定モードにより本アプリを利用できます。
-    </p>
+        <h2>4. データの保存および第三者提供</h2>
+        <ul>
+          <li>本アプリは開発者自身のサーバーへ利用者の位置情報や個人情報を送信・保存しません。</li>
+          <li>アプリの設定値および最新の予報キャッシュは、利用者の端末内（Android DataStore）にのみ保存され、アプリのアンインストールにより削除されます。</li>
+          <li>広告配信 SDK やアクセス解析ツールは組み込んでおらず、第三者へのデータ販売・共有も行いません。</li>
+        </ul>
 
-    <h2>6. お問い合わせ</h2>
-    <p>
-      本プライバシーポリシーまたは本アプリに関するお問い合わせは、以下の連絡先までご連絡ください。<br />
-      開発者連絡先: <a href="mailto:nobu.nakata@gmail.com">nobu.nakata@gmail.com</a>
-    </p>
+        <h2>5. 権限の取り消し</h2>
+        <p>
+          利用者は、Wear OS 端末の「設定」＞「アプリ」＞「SwellWatch」＞「権限」からいつでも位置情報の許可を取り消すことができます。位置情報を許可しない場合でも、登録ポイントや緯度・経度指定モードにより本アプリを利用できます。
+        </p>
 
-    <footer>
+        <h2>6. お問い合わせ</h2>
+        <p>
+          本プライバシーポリシーまたは本アプリに関するお問い合わせは、以下の連絡先までご連絡ください。<br />
+          開発者連絡先：<a href="mailto:nobu.nakata@gmail.com">nobu.nakata@gmail.com</a>
+        </p>
+      </div>
+    </article>
+
+    <footer class="site-footer">
       <span>SwellWatch — Wear OS Surf Compass &amp; Swell Forecast</span>
-      <a href="./index.html">アプリ紹介・サポートページへ戻る</a>
+      <span><a href="./index.html">アプリ紹介・サポートページへ戻る</a></span>
     </footer>
-  </main>
+  </div>
 </body>
 </html>
